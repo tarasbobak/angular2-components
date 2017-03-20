@@ -1,3 +1,14 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container"
+  [ngClass]="{'fancy-font': fancyFont}">
+  <ul>
+    <li *ngFor="let goal of learningGoals"
+      appHover>
+      <h3>{{goal.title}}</h3>
+      <h3>Due date: {{goal.dueDate | date:'dd-MM-y'}}</h3>
+    </li>
+  </ul>
+  <app-goal-details [goal]="learningGoals[0]"
+      (update)="updateGoal($event)"
+      (remove)="removeGoal()"></app-goal-details>
+  <button (click)="toggleFont()">Toggle fancy font</button>
+</div>

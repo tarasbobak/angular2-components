@@ -1,0 +1,12 @@
+<form #f="ngForm">
+  <input type="text"
+      name="title"
+      [ngModel]="goal.title">
+  <br>
+  <input type="text"
+      name="dueDate"
+      [ngModel]="goal.dueDate | date:'dd-MM-y'">
+  <br>
+  <button (click)="updateItem(f)">Save</button>
+  <button (click)="removeItem()">Remove</button>
+</form>
